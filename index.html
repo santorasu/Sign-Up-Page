@@ -10,10 +10,10 @@
 <body>
     <div class="container">
         <div class="from-box">
-            <h1>Sing Up</h1>
+            <h1 id="title">Sing Up</h1>
             <form>
                 <div class="input-group">
-                 <div class="input-field">
+                 <div class="input-field" id="nameField">
                     <i class="fa-solid fa-user"></i>
                     <input type="text" placeholder="Name">
                  </div> 
@@ -27,10 +27,34 @@
                     <i class="fa-solid fa-lock"></i>
                     <input type="password" placeholder="Password">
                  </div> 
-
+                 <p>Lost Password <a href="#">Click Here!</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="button" id="signupBtn">Sign Up</button>
+                    <button type="button" class="disable" id="signinBtn">Sign In</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let nameField = document.getElementById("nameField");
+        let title = document.getElementById("title");
+
+        signinBtn.onclick = function(){
+            nameField.style.maxHeight = '0';
+            title.innerHTML = 'Sing In';
+            signupBtn.classList.add('disable');
+            signinBtn.classList.remove('disable');
+        }
+            signupBtn.onclick = function(){
+            nameField.style.maxHeight = '60px';
+            title.innerHTML = 'Sing Up';
+            signupBtn.classList.remove('disable');
+            signinBtn.classList.add('disable');
+        }
+    </script>
 </body>
 </html>
